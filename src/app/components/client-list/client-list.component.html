@@ -1,0 +1,3 @@
+<div class="container" *ngIf="clients && clients.length > 0">
+    <app-client-card *ngFor="let client of clients" [client]=client></app-client-card>
+</div>
