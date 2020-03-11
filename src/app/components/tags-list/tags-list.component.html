@@ -1,0 +1,12 @@
+<div class="container" *ngIf="tags && tags.length > 0">
+    <div class="tag" *ngFor="let tag of tags" [style.background]="tag.color" >{{ tag.name }}</div>
+</div>
+<div class="container" *ngIf="!(tags && tags.length > 0)">
+    <div class="level">
+        <div class="level-item">
+            <h1 class="title is-2">
+                Ni oznak
+            </h1>
+        </div>
+    </div>
+</div>

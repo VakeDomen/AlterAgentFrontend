@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +18,8 @@ import { ClientCardComponent } from './components/client-card/client-card.compon
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { TagsDashobardComponent } from './pages/tags-dashobard/tags-dashobard.component';
 import { ServicesDashboardComponent } from './pages/services-dashboard/services-dashboard.component';
+import { TagsListComponent } from './components/tags-list/tags-list.component';
+import { TagNewComponent } from './components/tag-new/tag-new.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +33,18 @@ import { ServicesDashboardComponent } from './pages/services-dashboard/services-
     ClientCardComponent,
     ClientListComponent,
     TagsDashobardComponent,
-    ServicesDashboardComponent
+    ServicesDashboardComponent,
+    TagsListComponent,
+    TagNewComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ToastrModule.forRoot(),
+    ColorPickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

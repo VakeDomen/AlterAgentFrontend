@@ -1,0 +1,39 @@
+<button class="button is-primary" (click)="modalOpen=true">Dodaj oznako</button>
+
+<!-- tag modal -->
+<div class="modal" [ngClass]="{'is-active': modalOpen}">
+    <div class="modal-background" (click)='modalOpen = false'></div>
+    <div class="modal-card">
+        <!-- modal-body --> 
+        <div class="content box">
+            <div class="container">
+                <div class="columns">
+                    <div class="column color-picker-placeholder has-text-centered">
+                        <input 
+                            class = "color-picker"
+                            [(colorPicker)]="tag.color" 
+                            [style.background]="tag.color" 
+                            (colorPickerChange)="colorChange($event)"
+                        />
+                    </div>
+                    <div class="column is-four-fifths">
+                        <input class="input" type="text" placeholder="Oznaka..." [(ngModel)]="tag.name">
+                    </div>
+                    
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <button class="button is-primary" (click)="submitTag()">Potrdi</button>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+            
+            
+        </div>
+        <!-- /modal body -->
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)='modalOpen = false'></button>
+  </div>
