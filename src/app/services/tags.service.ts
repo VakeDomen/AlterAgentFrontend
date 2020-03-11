@@ -44,4 +44,8 @@ export class TagsService {
     return this.http.post(this.apiUrl + '/unbind', payload);
   }
 
+  deleteTag(tagId: string): Observable<ApiResponse<any>> {
+    return this.http.delete(this.apiUrl + '/' + tagId);
+  }
+
 }

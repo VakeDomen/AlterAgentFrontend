@@ -20,6 +20,7 @@ import { TagsDashobardComponent } from './pages/tags-dashobard/tags-dashobard.co
 import { ServicesDashboardComponent } from './pages/services-dashboard/services-dashboard.component';
 import { TagsListComponent } from './components/tags-list/tags-list.component';
 import { TagNewComponent } from './components/tag-new/tag-new.component';
+import { TagComponent } from './components/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TagNewComponent } from './components/tag-new/tag-new.component';
     TagsDashobardComponent,
     ServicesDashboardComponent,
     TagsListComponent,
-    TagNewComponent
+    TagNewComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,

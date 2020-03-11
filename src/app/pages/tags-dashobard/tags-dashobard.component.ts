@@ -21,8 +21,4 @@ export class TagsDashobardComponent implements OnInit {
       this.tags = payload.data;
     });
   }
-
-  newTag(tag: Tag): void {
-    this.tags.push(tag);
-  }
 }

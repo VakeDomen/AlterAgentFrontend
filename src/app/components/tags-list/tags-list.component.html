@@ -1,5 +1,5 @@
 <div class="container" *ngIf="tags && tags.length > 0">
-    <div class="tag" *ngFor="let tag of tags" [style.background]="tag.color" >{{ tag.name }}</div>
+    <app-tag *ngFor="let tag of tags" [deletable]=true [tag]=tag></app-tag>
 </div>
 <div class="container" *ngIf="!(tags && tags.length > 0)">
     <div class="level">
@@ -10,3 +10,5 @@
         </div>
     </div>
 </div>
+
+
