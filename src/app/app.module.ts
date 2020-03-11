@@ -13,6 +13,8 @@ import { ClinetComponent } from './pages/clinet/clinet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientCardComponent } from './components/client-card/client-card.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
+import { TagsDashobardComponent } from './pages/tags-dashobard/tags-dashobard.component';
+import { ServicesDashboardComponent } from './pages/services-dashboard/services-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ClientListComponent } from './components/client-list/client-list.compon
     ClinetsComponent,
     ClinetComponent,
     ClientCardComponent,
-    ClientListComponent
+    ClientListComponent,
+    TagsDashobardComponent,
+    ServicesDashboardComponent
   ],
   imports: [
     BrowserModule,

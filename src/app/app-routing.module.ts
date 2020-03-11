@@ -2,20 +2,36 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClinetsComponent } from './pages/clinets/clinets.component';
 import { ClinetComponent } from './pages/clinet/clinet.component';
+import { TagsDashobardComponent } from './pages/tags-dashobard/tags-dashobard.component';
+import { ServicesDashboardComponent } from './pages/services-dashboard/services-dashboard.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
   {
     path: '',
     component: ClinetsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'tags',
+    component: TagsDashobardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'services',
+    component: ServicesDashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'client/:id',
     component: ClinetComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
     component: ClinetsComponent,
+    canActivate: [AuthGuard],
   },
 ];
 
