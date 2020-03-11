@@ -1,7 +1,8 @@
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" [routerLink]="['/']">
+      <a class="navbar-item" (click)="activeTab='clients'; tab.emit('clients')" [routerLink]="['/']" >
         <!-- <img src="../../../assets/logo.png" width="35" height="35"> -->
+        <h1 class="title is-1">AlterAgent</h1>
       </a>
   
       <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu"
@@ -32,7 +33,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <app-local-auth></app-local-auth>
+            <app-local-auth [isPage]=false></app-local-auth>
           </div>
         </div>
       </div>

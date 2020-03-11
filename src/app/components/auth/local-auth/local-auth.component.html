@@ -1,5 +1,32 @@
-<button class="button is-primary" (click)="modalOpen = true" *ngIf="!authService.isLoggedIn()">Login</button>
-<button class="button is-primary" (click)="authService.logout()" *ngIf="authService.isLoggedIn()">Logout</button>
+<button class="button is-primary" (click)="modalOpen = true" *ngIf="!authService.isLoggedIn() && !isPage">Login</button>
+<button class="button is-primary" (click)="authService.logout()" *ngIf="authService.isLoggedIn() && !isPage">Logout</button>
+
+<div class="container" *ngIf="isPage">
+        <div class="tabs is-centered is-boxed is-medium">
+            <ul>
+                <li [ngClass]="{'is-active': tab === 'login'}" (click)="tab='login'">
+                    <a>
+                        <span class="icon is-small"><i class="fas fa-sign-in-alt" aria-hidden="true"></i></span>
+                        <span>Login</span>
+                    </a>
+                </li>
+                <li [ngClass]="{'is-active': tab === 'register'}" (click)="tab='register'">
+                    <a>
+                        <span class="icon is-small"><i class="fas fa-user-plus" aria-hidden="true"></i></span>
+                        <span>Register</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- tab content -->
+        <div class="container" *ngIf="tab==='login'">
+            <app-local-login (loginSuccess)="handleLoginAttempt($event)"></app-local-login>
+        </div>
+        <div class="container" *ngIf="tab==='register'">
+            <app-local-register (registrationSuccess)="handleRegistrationAttempt($event)"></app-local-register>
+        </div>
+    
+</div>
 
 <!-- auth modal -->
 <div class="modal" [ngClass]="{'is-active': modalOpen}">
@@ -33,7 +60,7 @@
                 <div class="container" *ngIf="tab==='register'">
                     <app-local-register (registrationSuccess)="handleRegistrationAttempt($event)"></app-local-register>
                 </div>
-        </div>
+            </div>
         
             <!-- /modal body -->
         </div>

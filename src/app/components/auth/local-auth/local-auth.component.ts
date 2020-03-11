@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-local-auth',
@@ -10,6 +11,7 @@ export class LocalAuthComponent implements OnInit {
 
   tab: 'login' | 'register' = 'login'
   modalOpen: boolean = false;
+  @Input() isPage: boolean = true;
 
   
 
@@ -18,7 +20,6 @@ export class LocalAuthComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
   }
 
   handleLoginAttempt(success: boolean): void {

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiResponse } from '../models/response';
 import { LocalCredentials } from '../models/local.credentials';
 import { User } from '../models/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
+    private router: Router,
   ) { }
 
   isLoggedIn(): boolean {
@@ -31,12 +33,14 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.token);
+    this.router.navigate(['/login'])
   }
 
   async loginLocal(credentials: LocalCredentials): Promise<boolean> {
     try {
       const response: ApiResponse<string> = await this.http.post<ApiResponse<string>>(this.apiUrl + 'local/login', credentials).toPromise();
       localStorage.setItem(this.token, response.data);
+      this.router.navigate(['/'])
     } catch(error) {
       return false;
     }
