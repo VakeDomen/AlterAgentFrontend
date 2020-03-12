@@ -1,0 +1,16 @@
+<button class="button is-primary" (click)="modalOpen=true">Uredi oznake</button>
+
+<!-- tag modal -->
+<div class="modal" [ngClass]="{'is-active': modalOpen}">
+    <div class="modal-background" (click)='modalOpen = false'></div>
+    <div class="modal-card">
+        <!-- modal-body --> 
+        <div class="content box">
+            <div class="container">
+               
+            </div>
+        </div>
+        <!-- /modal body -->
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)='modalOpen = false'></button>
+  </div>

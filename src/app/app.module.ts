@@ -22,6 +22,8 @@ import { TagsListComponent } from './components/tags/tags-list/tags-list.compone
 import { TagNewComponent } from './components/tags/tag-new/tag-new.component';
 import { TagComponent } from './components/tags/tag/tag.component';
 import { ClientNewComponent } from './components/clients/client-new/client-new.component';
+import { TagBindComponent } from './components/tags/tag-bind/tag-bind.component';
+import { ClientEditComponent } from './components/clients/client-edit/client-edit.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ClientNewComponent } from './components/clients/client-new/client-new.c
     TagsListComponent,
     TagNewComponent,
     TagComponent,
-    ClientNewComponent
+    ClientNewComponent,
+    TagBindComponent,
+    ClientEditComponent
   ],
   imports: [
     BrowserModule,

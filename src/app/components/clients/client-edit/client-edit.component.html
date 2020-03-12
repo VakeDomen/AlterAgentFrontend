@@ -1,0 +1,65 @@
+<button class="button is-primary" (click)="modalOpen=true">Uredi podatke</button>
+
+<!-- tag modal -->
+<div class="modal" [ngClass]="{'is-active': modalOpen}">
+    <div class="modal-background" (click)='modalOpen = false'></div>
+    <div class="modal-card">
+        <!-- modal-body -->
+        <div class="content">
+            <form class="box">
+                <div class="field">
+                    <label for="" class="label">Ime</label>
+                    <div class="control has-icons-left">
+                        <input [(ngModel)]='client.name' name=name type="text" placeholder="Ime" class="input">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Email</label>
+                    <div class="control has-icons-left">
+                        <input [(ngModel)]='client.email' name=email type="text" placeholder="john@doe.com" class="input">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Telefonska številka</label>
+                    <div class="control has-icons-left">
+                        <input [(ngModel)]='client.phone' name=phone type="text" placeholder="+386 ..." class="input">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-phone"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Naslov</label>
+                    <div class="control has-icons-left">
+                        <input [(ngModel)]='client.address' name=address type="text" placeholder="Naslov..." class="input">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Opis</label>
+                    <div class="control has-icons-left">
+                        <textarea [(ngModel)]='client.description' name=phone class="textarea">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        </textarea>
+                    </div>
+                </div>
+    
+                <div class="field">
+                    <button class="button is-primary" (click)=submitClient()>Vnos</button>
+                </div>
+            </form>    
+        </div>
+        <!-- /modal body -->
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)='modalOpen = false'></button>
+</div>

@@ -28,6 +28,7 @@ export class ClientNewComponent implements OnInit {
     this.clientService.submitClient(this.client).subscribe((payload: ApiResponse<Client>) => {
       this.newClient.emit(this.client);
       this.toastr.success("Stranka vnešena");
+      this.modalOpen = false;
     }, err => {
       this.toastr.error("Napaka pri vnašanju stranke");
     });
