@@ -3,6 +3,7 @@
     *ngIf="tag"
     [style.background]="tag.color"
     (click)=handleClick($event)
+    [ngClass]="{'bg-light-hover': postWhenClick}" 
 >
     {{ tag.name }}
     <button *ngIf="deletable" class="delete is-small" (click)="deletePromptModalOpen = true"></button>

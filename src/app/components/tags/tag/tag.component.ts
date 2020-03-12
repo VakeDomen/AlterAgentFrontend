@@ -39,8 +39,9 @@ export class TagComponent implements OnInit {
   }
 
   handleClick(): void {
-    console.log("h1")
-    this.clickPost.emit(this.tag);
+    if (this.postWhenClick) {
+      this.clickPost.emit(this.tag);
+    }
   }
 
 }
