@@ -29,12 +29,29 @@ export class TagBindComponent implements OnInit {
         this.clientTags = payload.data;
       });
       this.tagService.getTags().subscribe((payload: ApiResponse<Tag[]>) => {
+        console.log(payload)
         this.allTags = payload.data;
       });
     }
   }
 
+  getAvalibleTags(): Tag[] {
+    if (this.allTags) {
+      return this.allTags.filter((tag: Tag) => !this.containsTag(this.clientTags, tag));
+    }
+  }
+
+  containsTag(tagArray: Tag[], tag: Tag): boolean {
+    for (const tagel of tagArray) {
+      if (tagel.id === tag.id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   addTag(tag: Tag): void {
+    console.log("adding tag")
     this.tagService.bindTag(this.clientId, tag.id).subscribe((payload: ApiResponse<Tag>) => {
       this.clientTags.push(tag);
       this.toastr.success('Stranka označena');

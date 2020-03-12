@@ -1,10 +1,9 @@
 <span 
     class="tag is-large" 
-    *ngIf="tag"
-    [style.background]="tag.color"
-    (click)=handleClick($event)
+    *ngIf="service"
+    [style.background]="service.color" 
 >
-    {{ tag.name }}
+    {{ service.name }}
     <button *ngIf="deletable" class="delete is-small" (click)="deletePromptModalOpen = true"></button>
 </span>
 
@@ -16,11 +15,11 @@
     <div class="modal-card">
         <!-- modal-body --> 
         <div class="container box">
-            <h3 class="title is-3 has-text-centered">Ste prepričani, da želite izbrisati oznako?</h3>
-            <h3 class="subtitle is-5 has-text-centered">Označene strnake bodo izgubile oznako</h3>
+            <h3 class="title is-3 has-text-centered">Ste prepričani, da želite izbrisati storitev?</h3>
+            <h3 class="subtitle is-5 has-text-centered">Stranke bodo izgubile storitev</h3>
             <div class="level">
                 <div class="level-item has-text-centered">
-                    <button class="button is-primary is-outlined" (click)='deleteTag()'>Da</button>
+                    <button class="button is-primary is-outlined" (click)='deleteService()'>Da</button>
                 </div>
                 <div class="level-item has-text-centered">
                     <button class="button is-primary" (click)='deletePromptModalOpen = false'>Ne</button>

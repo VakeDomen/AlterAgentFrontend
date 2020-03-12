@@ -54,11 +54,11 @@
     </div>
 
     <!-- tags -->
-    <div class="container">
+    <div class="container box">
         <div class="level">
             <div class="level-left"><h1 class="title is-3">Oznake</h1></div>
             <div class="level-right">
-                <app-tag-bind (tagUpdate)=updateTags($event)></app-tag-bind>
+                <app-tag-bind (tagUpdate)=updateTags($event) [clientId]=client.id></app-tag-bind>
             </div>
         </div>
         <app-tags-list [tags]=tags></app-tags-list>

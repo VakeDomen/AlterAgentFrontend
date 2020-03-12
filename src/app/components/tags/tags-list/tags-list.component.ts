@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Tag } from './../../../models/tag';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { TagsService } from 'src/app/services/tags.service';
-import { Tag } from 'src/app/models/tag';
 import { ApiResponse } from 'src/app/models/response';
 import { Toast, ToastrService } from 'ngx-toastr';
 
@@ -13,10 +13,21 @@ export class TagsListComponent implements OnChanges {
 
   @Input() tags: Tag[];
   @Input() deletable: boolean = false;
+  @Input() postWhenClick: boolean = false;
+
+  @Output() deletedTag = new EventEmitter<Tag>();
+  @Output() clickPost = new EventEmitter<Tag>();
 
   constructor() { }
 
   ngOnChanges() {
   }
 
+  handleClick(tag: Tag): void {
+    this.clickPost.emit(tag);
+  }
+
+  removeTag(tagToDel: Tag): void {
+    this.deletedTag.emit(tagToDel);
+  }
 }

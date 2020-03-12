@@ -16,7 +16,7 @@ import { ClinetComponent } from './pages/clinet/clinet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientCardComponent } from './components/clients/client-card/client-card.component';
 import { ClientListComponent } from './components/clients/client-list/client-list.component';
-import { TagsDashobardComponent } from './pages/tags-dashobard/tags-dashobard.component';
+import { TagsDashboardComponent } from './pages/tags-dashboard/tags-dashboard.component';
 import { ServicesDashboardComponent } from './pages/services-dashboard/services-dashboard.component';
 import { TagsListComponent } from './components/tags/tags-list/tags-list.component';
 import { TagNewComponent } from './components/tags/tag-new/tag-new.component';
@@ -24,6 +24,10 @@ import { TagComponent } from './components/tags/tag/tag.component';
 import { ClientNewComponent } from './components/clients/client-new/client-new.component';
 import { TagBindComponent } from './components/tags/tag-bind/tag-bind.component';
 import { ClientEditComponent } from './components/clients/client-edit/client-edit.component';
+import { ServiceComponent } from './components/services/service/service.component';
+import { ServiceBindComponent } from './components/services/service-bind/service-bind.component';
+import { ServiceNewComponent } from './components/services/service-new/service-new.component';
+import { ServiceListComponent } from './components/services/service-list/service-list.component';
 
 @NgModule({
   declarations: [
@@ -36,14 +40,18 @@ import { ClientEditComponent } from './components/clients/client-edit/client-edi
     ClinetComponent,
     ClientCardComponent,
     ClientListComponent,
-    TagsDashobardComponent,
+    TagsDashboardComponent,
     ServicesDashboardComponent,
     TagsListComponent,
     TagNewComponent,
     TagComponent,
     ClientNewComponent,
     TagBindComponent,
-    ClientEditComponent
+    ClientEditComponent,
+    ServiceComponent,
+    ServiceBindComponent,
+    ServiceNewComponent,
+    ServiceListComponent
   ],
   imports: [
     BrowserModule,

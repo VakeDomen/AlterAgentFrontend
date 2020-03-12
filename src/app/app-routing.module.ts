@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClinetsComponent } from './pages/clinets/clinets.component';
 import { ClinetComponent } from './pages/clinet/clinet.component';
-import { TagsDashobardComponent } from './pages/tags-dashobard/tags-dashobard.component';
+import { TagsDashboardComponent } from './pages/tags-dashboard/tags-dashboard.component';
 import { ServicesDashboardComponent } from './pages/services-dashboard/services-dashboard.component';
 import { AuthGuard } from './services/auth.guard';
 import { LocalAuthComponent } from './components/auth/local-auth/local-auth.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'tags',
-    component: TagsDashobardComponent,
+    component: TagsDashboardComponent,
     canActivate: [AuthGuard],
   },
   {

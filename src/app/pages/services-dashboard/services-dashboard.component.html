@@ -1,1 +1,15 @@
-<p>services-dashboard works!</p>
+<div class="container">
+    <div class="level">
+        <div class="level-left">
+            <h1 class="title is-1">Storitve</h1>
+        </div>
+        <div class="level-right">
+            <app-service-new (newService)=services.push($event) ></app-service-new>
+        </div>
+    </div>
+    <app-service-list 
+        [deletable]=true 
+        [services]=services
+        (deletedService)=removeService($event)
+    ></app-service-list>
+</div>

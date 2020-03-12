@@ -13,8 +13,10 @@ export class TagComponent implements OnInit {
 
   @Input() tag: Tag;
   @Input() deletable: boolean = false;
+  @Input() postWhenClick: boolean = false;
 
-  @Output() delted = new EventEmitter<boolean>();
+  @Output() deleted = new EventEmitter<Tag>();
+  @Output() clickPost = new EventEmitter<Tag>();
 
   deletePromptModalOpen: boolean = false;
 
@@ -29,10 +31,16 @@ export class TagComponent implements OnInit {
   deleteTag(): void {
     this.tagsService.deleteTag(this.tag.id).subscribe((payload: ApiResponse<any>) => {
       this.toastr.success('Izbrisano');
+      this.deleted.emit(this.tag);
+      this.deletePromptModalOpen = false;
     }, err => {
       this.toastr.error('Prišlo je do napake pri brisanju');
     });
-    this.deletePromptModalOpen = false;
+  }
+
+  handleClick(): void {
+    console.log("h1")
+    this.clickPost.emit(this.tag);
   }
 
 }

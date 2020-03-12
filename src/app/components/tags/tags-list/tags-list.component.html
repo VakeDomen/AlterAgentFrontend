@@ -1,5 +1,12 @@
 <div class="container" *ngIf="tags && tags.length > 0">
-    <app-tag *ngFor="let tag of tags" [deletable]=true [tag]=tag></app-tag>
+    <app-tag 
+        *ngFor="let tag of tags" 
+        [deletable]=deletable 
+        [tag]=tag 
+        (deleted)=removeTag($event) 
+        [postWhenClick]=postWhenClick
+        (clickPost)=handleClick($event)
+    ></app-tag>
 </div>
 <div class="container" *ngIf="!(tags && tags.length > 0)">
     <div class="level">

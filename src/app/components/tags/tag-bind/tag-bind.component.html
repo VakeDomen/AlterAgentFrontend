@@ -7,6 +7,15 @@
         <!-- modal-body --> 
         <div class="content box">
             <div class="container">
+                <h1 class="title is-3">Izbrane oznake:</h1>
+                <div class="box">
+                    <app-tags-list [tags]=clientTags [postWhenClick]=true (clickPost)=removeTag($event)></app-tags-list>
+                </div>
+                <h1 class="title is-3">Oznake še na voljo:</h1>
+                <div class="box">
+                    <app-tags-list [tags]=getAvalibleTags() [postWhenClick]=true (clickPost)=addTag($event)></app-tags-list>
+                </div>
+
                
             </div>
         </div>

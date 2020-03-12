@@ -4,11 +4,11 @@ import { TagsService } from 'src/app/services/tags.service';
 import { ApiResponse } from 'src/app/models/response';
 
 @Component({
-  selector: 'app-tags-dashobard',
-  templateUrl: './tags-dashobard.component.html',
-  styleUrls: ['./tags-dashobard.component.sass']
+  selector: 'app-tags-dashboard',
+  templateUrl: './tags-dashboard.component.html',
+  styleUrls: ['./tags-dashboard.component.sass']
 })
-export class TagsDashobardComponent implements OnInit {
+export class TagsDashboardComponent implements OnInit {
 
   tags: Tag[];
 
@@ -20,5 +20,11 @@ export class TagsDashobardComponent implements OnInit {
     this.tagService.getTags().subscribe((payload: ApiResponse<Tag[]>) => {
       this.tags = payload.data;
     });
+  }
+
+  removeTag(tagToRemove: Tag): void {
+    console.log(this.tags);
+    this.tags = this.tags.filter((tag: Tag) => tag.id !== tagToRemove.id);
+    console.log(this.tags);
   }
 }
