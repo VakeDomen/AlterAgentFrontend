@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -18,6 +19,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   isLoggedIn(): boolean {
@@ -29,7 +31,7 @@ export class AuthService {
 
   getJWTtoken(): string {
     return localStorage.getItem(this.token);
-  }  
+  }
 
   logout(): void {
     localStorage.removeItem(this.token);
@@ -41,16 +43,20 @@ export class AuthService {
       const response: ApiResponse<string> = await this.http.post<ApiResponse<string>>(this.apiUrl + 'local/login', credentials).toPromise();
       localStorage.setItem(this.token, response.data);
       this.router.navigate(['/'])
-    } catch(error) {
+      this.toastr.success("Uspešno vpisan");
+    } catch (error) {
+      this.toastr.error("Neuspešen vpis");
       return false;
     }
     return true;
   }
 
   async registerLocal(user: User): Promise<boolean> {
-    try{
+    try {
       const response: ApiResponse<null> = await this.http.post<ApiResponse<null>>(this.apiUrl + 'local/register', user).toPromise();
+      this.toastr.success("Registracija uspešna");
     } catch (err) {
+      this.toastr.error("Neuspešena registracija");
       return false;
     }
     return false;

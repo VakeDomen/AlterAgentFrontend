@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class LocalAuthComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit() {

@@ -14,13 +14,14 @@ import { LocalRegisterComponent } from './components/auth/local-register/local-r
 import { ClinetsComponent } from './pages/clinets/clinets.component';
 import { ClinetComponent } from './pages/clinet/clinet.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ClientCardComponent } from './components/client-card/client-card.component';
-import { ClientListComponent } from './components/client-list/client-list.component';
+import { ClientCardComponent } from './components/clients/client-card/client-card.component';
+import { ClientListComponent } from './components/clients/client-list/client-list.component';
 import { TagsDashobardComponent } from './pages/tags-dashobard/tags-dashobard.component';
 import { ServicesDashboardComponent } from './pages/services-dashboard/services-dashboard.component';
-import { TagsListComponent } from './components/tags-list/tags-list.component';
-import { TagNewComponent } from './components/tag-new/tag-new.component';
-import { TagComponent } from './components/tag/tag.component';
+import { TagsListComponent } from './components/tags/tags-list/tags-list.component';
+import { TagNewComponent } from './components/tags/tag-new/tag-new.component';
+import { TagComponent } from './components/tags/tag/tag.component';
+import { ClientNewComponent } from './components/clients/client-new/client-new.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TagComponent } from './components/tag/tag.component';
     ServicesDashboardComponent,
     TagsListComponent,
     TagNewComponent,
-    TagComponent
+    TagComponent,
+    ClientNewComponent
   ],
   imports: [
     BrowserModule,
