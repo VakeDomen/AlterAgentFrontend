@@ -1,0 +1,44 @@
+<button class="button is-primary" (click)="modalOpen = true">Dodaj sejo</button>
+
+<!-- service modal -->
+<div class="modal" [ngClass]="{'is-active': modalOpen}">
+    <div class="modal-background" (click)='modalOpen = false'></div>
+    <div class="modal-card">
+        <!-- modal-body --> 
+        <div class="content box">
+            <div class="container">
+                <label for="" class="label">Storitev:</label>
+                <div class="select" *ngIf="selectedService">
+                    <select (change)="selectService($event.target.value)">
+                        <option *ngFor="let service of allServices">
+                            {{ service.name }}
+                        </option>
+                    </select>
+    
+                </div>
+                <div class="filed">
+                    <label for="" class="label">Datum:</label>
+                    <app-datepicker (date)=selectDate($event)></app-datepicker>
+                </div>
+            
+                <div class="field">
+                    <label for="" class="label">Opis</label>
+                    <div class="control has-icons-left">
+                        <textarea [(ngModel)]='session.description' name=phone class="textarea">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        </textarea>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <button class="button is-primary" (click)="submitSession()">Potrdi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /modal body -->
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)='modalOpen = false'></button>
+  </div>

@@ -28,6 +28,20 @@ import { ServiceComponent } from './components/services/service/service.componen
 import { ServiceBindComponent } from './components/services/service-bind/service-bind.component';
 import { ServiceNewComponent } from './components/services/service-new/service-new.component';
 import { ServiceListComponent } from './components/services/service-list/service-list.component';
+import { SessionAddComponent } from './components/sessions/session-add/session-add.component';
+import { SessionListComponent } from './components/sessions/session-list/session-list.component';
+import { SessionComponent } from './components/sessions/session/session.component';
+
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { 
+  MatDatepickerModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule,
+  MatNativeDateModule
+ } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -51,18 +65,34 @@ import { ServiceListComponent } from './components/services/service-list/service
     ServiceComponent,
     ServiceBindComponent,
     ServiceNewComponent,
-    ServiceListComponent
+    ServiceListComponent,
+    SessionAddComponent,
+    SessionListComponent,
+    SessionComponent,
+    DatepickerComponent,
   ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatDatepickerModule,
     FormsModule,
     ToastrModule.forRoot(),
     ColorPickerModule,
+
+    MatDatepickerModule,
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

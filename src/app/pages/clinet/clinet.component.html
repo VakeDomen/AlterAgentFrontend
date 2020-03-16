@@ -64,12 +64,19 @@
         <app-tags-list [tags]=tags></app-tags-list>
     </div>
     
-    
-
-    <h1 class="title is-3">Pretekle storitve</h1>
-    <div class="box">
-
+    <!-- sessions -->
+    <div class="container box">
+        <div class="level">
+            <div class="level-left">
+                <h1 class="title is-3">Pretekle seje</h1>
+            </div>
+            <div class="level-right">
+                <app-session-add (newSession)=addSession($event) [clientId]=client.id></app-session-add>
+            </div>
+        </div>
+        
     </div>
+    
 </div>
 
 <div class="container" *ngIf="!client">

@@ -1,0 +1,23 @@
+<mat-form-field>
+    <input
+        matInput
+        readonly
+        [matDatepicker] = "picker"
+        placeholder = "{{label}}"
+        (dateInput)="addDate('input', $event)"
+        (dateChange)="addDate('change', $event)"
+        [(ngModel)]="dateSelected"
+        (click)="pickerToggle.datepicker.open()"
+        (focus)="pickerToggle.datepicker.open()"
+    >
+    <mat-datepicker-toggle
+        #pickerToggle
+        matSuffix [for] = "picker">
+    </mat-datepicker-toggle>
+    <mat-datepicker
+        #picker
+        [startView]="'multi-year'"
+    ></mat-datepicker>
+
+</mat-form-field
+>

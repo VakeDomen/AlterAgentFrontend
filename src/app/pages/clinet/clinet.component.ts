@@ -6,6 +6,8 @@ import { Client } from './../../models/client';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tag } from 'src/app/models/tag';
+import { Session } from 'src/app/models/session';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-clinet',
@@ -16,12 +18,13 @@ export class ClinetComponent implements OnInit {
 
   client: Client;
   tags: Tag[];
+  sessions: Session[];
 
   constructor(
     private clientService: ClientService,
     private tagService: TagsService,
-    private toastr: ToastrService,
     private route: ActivatedRoute,
+    private sessionService: SessionService,
   ) { }
 
   ngOnInit() {
@@ -32,6 +35,9 @@ export class ClinetComponent implements OnInit {
     this.tagService.getClientTags(id).subscribe((payload: ApiResponse<Tag[]>) => {
       this.tags = payload.data;
     });
+    this.sessionService.getClientSessions(id).subscribe((payload: ApiResponse<Session[]>) => {
+      this.sessions = payload.data;
+    });
   }
 
   updateTags(tags: Tag[]): void {
@@ -40,5 +46,9 @@ export class ClinetComponent implements OnInit {
 
   editClient(client: Client): void {
     this.client = client;
+  }
+
+  addSession(session: Session): void {
+    this.sessions = [session, ...this.sessions]
   }
 }
