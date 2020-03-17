@@ -51,4 +51,8 @@ export class ClinetComponent implements OnInit {
   addSession(session: Session): void {
     this.sessions = [session, ...this.sessions]
   }
+
+  removeSession(sessionToDel: Session): void {
+    this.sessions = this.sessions.filter((session: Session) => session.id !== sessionToDel.id);
+  }
 }
