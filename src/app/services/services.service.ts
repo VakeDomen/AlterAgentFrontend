@@ -20,6 +20,10 @@ export class ServicesService {
     return this.http.get<ApiResponse<Service[]>>(this.apiUrl);
   }
 
+  getService(id: string): Observable<ApiResponse<Service[]>> {
+    return this.http.get<ApiResponse<Service[]>>(this.apiUrl + '/' + id);
+  }
+
   submitService(service: Service): Observable<ApiResponse<Service>> {
     return this.http.post<ApiResponse<Service>>(this.apiUrl, service);
   }

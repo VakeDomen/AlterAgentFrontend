@@ -74,7 +74,7 @@
                 <app-session-add (newSession)=addSession($event) [clientId]=client.id></app-session-add>
             </div>
         </div>
-        
+        <app-session-list [sessions]=sessions [deletable]=true></app-session-list>
     </div>
     
 </div>

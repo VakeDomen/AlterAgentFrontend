@@ -1,1 +1,12 @@
-<p>session-list works!</p>
+<div class="container" *ngIf="sessions && sessions.length > 0">
+    <app-session *ngFor="let session of sessions" [deletable]=deletable [session]=session (deletedSession)=removeSession($event)></app-session>
+</div>
+<div class="container" *ngIf="!(sessions && sessions.length > 0)">
+    <div class="level">
+        <div class="level-item">
+            <h1 class="title is-2">
+                Ni storitev
+            </h1>
+        </div>
+    </div>
+</div>

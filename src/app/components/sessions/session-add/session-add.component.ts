@@ -43,11 +43,11 @@ export class SessionAddComponent implements OnChanges {
   submitSession(): void {
     this.session.client_id = this.clientId;
     this.session.service_id = this.selectedService.id;
-    console.log(this.session)
-    if (this.clientId && this.clientId !== '' && this.session.service_id !== '') {
+    if (this.clientId && this.clientId !== '' && this.session.service_id !== '' && this.session.timestamp !== '') {
       this.sessionService.submitSession(this.session).subscribe((payload: ApiResponse<Session>) => {
         this.newSession.emit(payload.data);
         this.toastr.success('Seja dodana');
+        this.modalOpen = false;
       });
     } else {
       this.toastr.error("Neveljavni podatki");
@@ -55,7 +55,6 @@ export class SessionAddComponent implements OnChanges {
   }
 
   selectService(service: string): void {
-    console.log(service);
     for (const serv of this.allServices) {
       if (serv.name === service) {
         this.selectedService = serv;
