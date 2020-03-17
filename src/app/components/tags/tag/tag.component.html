@@ -2,7 +2,7 @@
     class="tag is-large" 
     *ngIf="tag"
     [style.background]="tag.color"
-    (click)=handleClick($event)
+    (click)=handleClick()
     [ngClass]="{'bg-light-hover': postWhenClick}" 
 >
     {{ tag.name }}
