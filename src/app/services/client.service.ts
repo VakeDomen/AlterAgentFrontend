@@ -23,6 +23,10 @@ export class ClientService {
     return this.http.get<ApiResponse<Client[]>>(this.apiUrl + '/' + id);
   }
 
+  getClientsByTag(tagId: string): Observable<ApiResponse<Client[]>> {
+    return this.http.get<ApiResponse<Client[]>>(this.apiUrl + '/tag/' + tagId);
+  }
+
   updateClient(client: Client): Observable<ApiResponse<Client>> {
     return this.http.patch<ApiResponse<Client>>(this.apiUrl, client);
   }

@@ -7,9 +7,31 @@
             <app-tag-new (newTag)=tags.push($event) ></app-tag-new>
         </div>
     </div>
-    <app-tags-list 
-        [deletable]=true 
-        [tags]=tags
-        (deletedTag)=removeTag($event)
-    ></app-tags-list>
+    <!-- list of tags -->
+    <div class="container box">
+        <app-tags-list class="has-text-centered"
+            [deletable]=true 
+            [tags]=tags
+            (deletedTag)=removeTag($event)
+        ></app-tags-list>
+
+    </div>
+
+    <h1 class="title is-2">Stranke</h1>
+    <div class="container" *ngIf="tags">
+        <!-- filter -->
+        <ng-select
+            [items]="filterTags"
+            bindLabel="Oznake"
+            placeholder="Izberi oznake"
+            appendTo="body"
+            multiple="true"
+            [(ngModel)]="filteredTags"
+            (add)=addClients($event)
+            (remove)=removeClients($event)
+            (clear)=clearClients()
+        >
+        </ng-select>
+        <app-client-list [clients]=getClients()></app-client-list>
+    </div>
 </div>

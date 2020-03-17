@@ -41,6 +41,8 @@ import {
   MatRippleModule,
   MatNativeDateModule
  } from '@angular/material';
+ import { NgSelectModule } from '@ng-select/ng-select';
+
 
 
 @NgModule({
@@ -88,6 +90,7 @@ import {
     ColorPickerModule,
 
     MatDatepickerModule,
+    NgSelectModule,
   ],
   providers: [
     MatDatepickerModule,
