@@ -11,6 +11,7 @@ import { ApiResponse } from 'src/app/models/response';
 export class ClinetsComponent implements OnInit {
 
   clients: Client[];
+  allClients: Client[];
 
   constructor(
     private clientService: ClientService,
@@ -19,6 +20,18 @@ export class ClinetsComponent implements OnInit {
   ngOnInit() {
     this.clientService.getClients().subscribe((payload: ApiResponse<Client[]>) => {
       this.clients = payload.data;
+      this.allClients = payload.data;
     });
+  }
+
+  queryClients(query: string): void {
+    if (query === '') {
+      this.clients = this.allClients;
+    } else {
+      this.clientService.getClientsByName(query).subscribe((payload: ApiResponse<Client[]>) => {
+        this.clients = payload.data;
+        console.log(payload);
+      });
+    }
   }
 }

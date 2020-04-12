@@ -42,6 +42,7 @@ import {
   MatNativeDateModule
  } from '@angular/material';
  import { NgSelectModule } from '@ng-select/ng-select';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 
 
@@ -61,6 +62,7 @@ import {
     TagsListComponent,
     TagNewComponent,
     TagComponent,
+    SearchBarComponent,
     ClientNewComponent,
     TagBindComponent,
     ClientEditComponent,
@@ -72,6 +74,7 @@ import {
     SessionListComponent,
     SessionComponent,
     DatepickerComponent,
+    SearchBarComponent,
   ],
   imports: [
     MatDatepickerModule,

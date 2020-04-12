@@ -8,6 +8,13 @@
         </div>
     </div>
     <div class="container">
+        <app-search-bar 
+            [label]="'Išči stranke...'" 
+            [parentLabel]="'clients'"            
+            (searchQuery)=queryClients($event)
+        ></app-search-bar>
+    </div>
+    <div class="container">
         <app-client-list [clients]=clients></app-client-list>
     </div>
 </div>

@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="field">
+        <div class="control">
+            <input 
+                [(ngModel)]=query
+                class="input is-medium is-rounded" 
+                type="text" 
+                [placeholder]=label
+                (ngModelChange)="emitQuery($event)"
+            >
+        </div>
+    </div>
+</div>

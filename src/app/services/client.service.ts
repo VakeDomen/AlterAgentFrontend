@@ -19,6 +19,10 @@ export class ClientService {
     return this.http.get<ApiResponse<Client[]>>(this.apiUrl);
   }
 
+  getClientsByName(name: string): Observable<ApiResponse<Client[]>>{
+    return this.http.get<ApiResponse<Client[]>>(this.apiUrl + '/name/' + name);
+  }
+
   getClient(id: string): Observable<ApiResponse<Client[]>> {
     return this.http.get<ApiResponse<Client[]>>(this.apiUrl + '/' + id);
   }
