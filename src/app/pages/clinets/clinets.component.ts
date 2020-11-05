@@ -30,7 +30,6 @@ export class ClinetsComponent implements OnInit {
     } else {
       this.clientService.getClientsByName(query).subscribe((payload: ApiResponse<Client[]>) => {
         this.clients = payload.data;
-        console.log(payload);
       });
     }
   }
